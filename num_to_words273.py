@@ -1,4 +1,16 @@
+"""
+Convert a non-negative integer to its english words representation. 
+Given input is guaranteed to be less than (2^31) - 1.
+
+For example,
+123 -> "One Hundred Twenty Three"
+12345 -> "Twelve Thousand Three Hundred Forty Five"
+1234567 -> "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
+"""
+
+
 class Solution:
+    """ Solution """
     def numberToWords(self, num):
         """
         :type num: int
@@ -18,6 +30,7 @@ class Solution:
             for i, word in enumerate(('Thousand', 'Million', 'Billion'), 1):
                 if n < 1000**(i+1):
                     return words(n//1000**i) + [word] + words(n%1000**i)
-            
-                
         return ' '.join(words(num)) or 'Zero'
+
+obj = Solution()
+print(obj.numberToWords(234)) #returns Two Hundred Thirty Four
