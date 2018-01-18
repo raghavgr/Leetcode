@@ -25,6 +25,7 @@ class Solution:
 
     def addDigits_2(self, num):
         """
+        Using some tricky mathematics
         :type num: int
         :rtype: int
         """
