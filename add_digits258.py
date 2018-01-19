@@ -30,3 +30,4 @@ class Solution:
         :rtype: int
         """
         return ((num - 1) % 9) + 1
+    
