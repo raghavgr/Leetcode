@@ -30,4 +30,14 @@ class Solution:
             if ls[i] == True:
                 return i
     
+    def missingNumber2(self, nums):
+        """
+        Using the sequence sum formula
+        :type nums: List[int]
+        :rtype: int
+        """
+        total_sum = (len(nums)*(len(nums) + 1)) / 2
+        sum_nums = sum(nums)
+        return total_sum - sum_nums
+    
     
