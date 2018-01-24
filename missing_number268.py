@@ -39,5 +39,5 @@ class Solution:
         total_sum = (len(nums)*(len(nums) + 1)) / 2
         sum_nums = sum(nums)
         return total_sum - sum_nums
-    
-    
+        
+
