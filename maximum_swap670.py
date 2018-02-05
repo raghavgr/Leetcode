@@ -55,3 +55,7 @@ class Solution:
                     A[i], A[last[j]] = A[last[j]], A[i]
                     return int("".join(map(str, A)))
         return num
+
+obj = Solution()
+print(obj.maximum_swap2(10973))
+print(obj.maximum_swap2(2736))
