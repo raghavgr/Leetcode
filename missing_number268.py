@@ -18,7 +18,7 @@ class Solution:
     """ 3 solutions """
     def missingNumber(self, nums):
         """
-        First solution. With O(len(nums)) complexity.
+        First solution. With O(n) complexity both time & space.
         :type nums: List[int]
         :rtype: int
         """
@@ -32,12 +32,28 @@ class Solution:
     
     def missingNumber2(self, nums):
         """
-        Using the sequence sum formula
+        Using the sequence sum formula. O(n), O(1) space
         :type nums: List[int]
         :rtype: int
         """
         total_sum = (len(nums)*(len(nums) + 1)) / 2
         sum_nums = sum(nums)
         return total_sum - sum_nums
-        
+    
+    def missingNumber3(self, nums):
+        """
+        Using bit manipulation technique with XOR.
+        Index	0	1	2	3
+        Value	0	1	3	4
+        missing = 4∧(0∧0)∧(1∧1)∧(2∧3)∧(3∧4)
+                = (4∧4)∧(0∧0)∧(1∧1)∧(3∧3)∧2
+                = 0∧0∧0∧0∧2
+                = 2
+        :type nums: List[int]
+        :rtype: int
+        """
+        missing_num = len(nums)
+        for i, num in enumerate(nums):
+            missing_num ^= i ^ num
+        return missing_num
 
