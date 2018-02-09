@@ -26,9 +26,12 @@ Explanation:
 There is no index that satisfies the conditions in the problem statement.
 """
 
-class Solution:
+class Solution:   
+    """ 2 solutions """
+
     def pivotIndex(self, nums):
         """
+        O(N) time and O(1) space
         :type nums: List[int]
         :rtype: int
         """
@@ -39,10 +42,11 @@ class Solution:
             if left == total:
                 return i
             left += nums[i]
-        return -1
-    
+        return -1 
+
     def pivotIndex2(self, nums):
         """
+        Brute force O(n^2)
         :type nums: List[int]
         :rtype: int
         """
