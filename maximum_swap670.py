@@ -36,26 +36,30 @@ class Solution:
         Greedy approach to solving the problem
         """
         A = [int(d) for d in str(num)]
-        last = {x: i for i, x in enumerate(A)}
+        last = {x: i for i, x in enumerate(A)}    # d = {key: value for (value, key) in enumerate}
+        print(last)
+        #print(last)
+        #print(enumerate(A))
         for i in range(len(A)):
             for j in range(9, A[i], -1):
-                # here we loop through last dictionary
-                # see where the index of a greater value is smaller
-                # than a previous value. start from the end, at 9.
-                # If there is one, swap and return.
+                # since the digits can never be greater than 9
+                # we loop from 9 until the value of A[i].
+                # 
                 # O(N)
-
                 """
                 debug statements
-                # print("j is: " + str(j))
-                # print("last.get is: "+ str(last.get(j)))
-                # print(i)
+                print("i is: " + str(i))
+                print("j is: " + str(j))
+                print("last.get is: "+ str(last.get(j)))
+                print(A[i])
                 """
                 if j in last and last.get(j) > i:
+                    # print("last[j] is: " + str(last[j]))
                     A[i], A[last[j]] = A[last[j]], A[i]
+                    # 2, 7 = 7, 2
                     return int("".join(map(str, A)))
         return num
 
 obj = Solution()
-print(obj.maximum_swap2(10973))
+print(obj.maximum_swap1(10973))
 print(obj.maximum_swap2(2736))
