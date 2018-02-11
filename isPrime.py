@@ -4,7 +4,6 @@ def isPrime(num):
     if num > 3:
         for i in range(1, int(num**0.5) + 1, 2):    # only odd numbers
             if num%i == 0:
-                print("what " + str(i))
                 return False
     
     return True
