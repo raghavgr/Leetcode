@@ -6,9 +6,11 @@ Given s = "hello", return "olleh".
 """
 
 class Solution:
+    """ 2 solutions """
     def reverseString(self, s):
         """
-        In-place reverse string algorithm
+        in-place reverse string algorithm
+        i.e. another string is not used to store the result
         :type s: str
         :rtype: str
         """
