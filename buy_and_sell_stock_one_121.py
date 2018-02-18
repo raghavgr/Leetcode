@@ -19,9 +19,10 @@ Output: 0
 In this case, no transaction is done, i.e. max profit = 0.
 """
 class Solution(object):
+    """ 2 solutions """
     def maxProfit(self, prices):
         """
-        One pass
+        One pass. O(n)
         :type prices: List[int]
         :rtype: int
         """
@@ -35,6 +36,25 @@ class Solution(object):
                 largest_return = i - lowest_price
             
         return largest_return
+    
+    def maxProfit2(self, prices):
+        """
+        Brute Force O(n^2)
+        :type prices: List[int]
+        :rtype: int
+        """
+        q = -sys.maxsize - 1
+        for i in range(len(prices) - 1):
+            if prices[i] > prices[i + 1]:
+                continue
+            else:
+                for j in range(i + 1, len(prices)):
+                    if q < (prices[j] - prices[i]):
+                        q = prices[j] - prices[i]
+        if q > -sys.maxsize - 1:
+            return q
+        else:
+            return 0
 
 obj = Solution()
 print(obj.maxProfit([7, 1, 5, 3, 6, 4]))
