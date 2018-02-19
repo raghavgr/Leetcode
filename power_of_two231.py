@@ -16,3 +16,9 @@ class Solution(object):
             else:
                 return False
         return True
+
+obj = Solution()
+print(64)
+print(obj.isPowerOfTwo(64))
+print(23)
+print(obj.isPowerOfTwo(23))
