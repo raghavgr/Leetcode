@@ -25,3 +25,6 @@ class Solution:
                 return True
             i += 1
         return False
+
+obj = Solution()
+print(obj.isPerfectSquare(14))
