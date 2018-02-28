@@ -1,3 +1,4 @@
+import sys
 """
 You are given coins of different denominations and a 
 total amount of money amount. Write a function to compute the 
@@ -14,6 +15,24 @@ return -1.
 
 """
 class Solution(object):
+    def coinChange(self, coins, amount):
+        """
+        Worked
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+        dp = [0] + [sys.maxsize] * amount
+        # dp[0, sys.maxsize, sys.maxsize, ... sys.maxsize]
+        for i in range(amount):
+            for c in coins:
+                if c + i > amount:
+                    continue
+                else:
+                    dp[i + c] = min(dp[i] + 1, dp[i + c])
+        print(dp)
+        return dp[-1] if dp[-1] != sys.maxsize else -1
+
     def coinChange2(self, coins, amount):
         """
         This solution and it's helper function were not accepted
