@@ -25,11 +25,11 @@ class Solution(object):
         dp = [0] + [sys.maxsize] * amount
         # dp[0, sys.maxsize, sys.maxsize, ... sys.maxsize]
         for i in range(amount):
-            for c in coins:
-                if c + i > amount:
+            for cent in coins:
+                if cent + i > amount:
                     continue
                 else:
-                    dp[i + c] = min(dp[i] + 1, dp[i + c])
+                    dp[i + cent] = min(dp[i] + 1, dp[i + cent])
         print(dp)
         return dp[-1] if dp[-1] != sys.maxsize else -1
 
