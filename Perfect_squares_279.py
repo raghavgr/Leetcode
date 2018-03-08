@@ -38,6 +38,17 @@ class Solution(object):
                         dp[i] = dp[i - j*j] + 1
             #print(dp)
         return dp[n]
+    
+    def numSquares_clean(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        dp = [i for i in range(n + 1)]
+        for i in range(1, n + 1):
+            for j in range(2, int(math.sqrt(n)) + 1):
+                dp[i] = min(dp[i], dp[i - j*j] + 1)
+        return dp[n]
 
 obj =Solution()
 print(obj.numSquares(16))
