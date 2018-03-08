@@ -7,6 +7,34 @@ For example, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly
 Note that 1 is typically treated as an ugly number, and n does not exceed 1690.
 """
 class Solution(object):
+    def nthUglyNumber(self, n):
+        """
+        O(n) 
+        :type n: int
+        :rtype: int
+        """
+        ls = []
+        ls.append(1)
+        
+        i = 0
+        j = 0
+        k = 0
+        while len(ls) < n:
+            times2 = ls[i] * 2
+            times3 = ls[j] * 3
+            times5 = ls[k] * 5
+            
+            smallest = min(times2, times3, times5)
+            ls.append(smallest)
+            
+            if smallest == times2:
+                i += 1
+            if smallest == times3:
+                j += 1
+            if smallest == times5:
+                k += 1
+        return ls[-1]
+    
     def isUgly(self, num):
         """
         :type num: int
