@@ -20,8 +20,13 @@ class Solution(object):
         return num == 1
     
     def nthUglyNumber1(self, n):
+        """
+        Time Limit exceeded. 
+        Still using naive approach
+        :type n: int
+        :rtype: int
+        """
         initial = [1, 2, 3, 4, 5, 6, 8, 9, 10, 12]
-        primes = [7, 11]
         i = 13
         count = 10
         if n <= 10:
