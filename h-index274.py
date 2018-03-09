@@ -23,7 +23,11 @@ class Solution:
         if len(citations) == 0:
             return 0
         sorted_cit = sorted(citations, reverse = True) # O(n lg n)
+        print(sorted_cit)
         i = 0
         while i < len(citations) and sorted_cit[i] >= (i + 1):
             i += 1
         return i
+
+obj = Solution()
+print(obj.hIndex([3, 0, 6, 1, 5]))
