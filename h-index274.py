@@ -20,6 +20,28 @@ class Solution:
         :type citations: List[int]
         :rtype: int
         """
+        n = len(citations)
+        count = [0] * (n+1)
+        for i in citations:
+            if i > n:
+                count[n] += 1
+            else:
+                count[i] += 1
+        sum = 0
+        i = n
+        while i >= 0:
+            sum += count[i]
+            if sum >= i:
+                return i
+            i -= 1
+        return 0
+
+
+    def hIndex2(self, citations):
+        """
+        :type citations: List[int]
+        :rtype: int
+        """
         if len(citations) == 0:
             return 0
         sorted_cit = sorted(citations, reverse = True) # O(n lg n)
@@ -28,6 +50,8 @@ class Solution:
         while i < len(citations) and sorted_cit[i] >= (i + 1):
             i += 1
         return i
+    
+    
 
 obj = Solution()
-print(obj.hIndex([3, 0, 6, 1, 5]))
+print(obj.hIndex([5, 8, 10, 4, 3]))
