@@ -17,6 +17,7 @@ class Solution:
     """ solution """
     def hIndex(self, citations):
         """
+        O(n) time and O(n) space solution
         :type citations: List[int]
         :rtype: int
         """
@@ -39,6 +40,7 @@ class Solution:
 
     def hIndex2(self, citations):
         """
+        O(n lg n) solution for h-index
         :type citations: List[int]
         :rtype: int
         """
